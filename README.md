@@ -1,1 +1,174 @@
-🛡️ AI/ML/LLM Penetration Testing ResourcesWelcome to the AI/ML/LLM Penetration Testing Resources repository! This collection is designed to provide a comprehensive set of materials, tools, and documentation for understanding, identifying, and mitigating vulnerabilities in Artificial Intelligence, Machine Learning, and Large Language Model systems.Whether you're a seasoned cybersecurity professional or just starting in the fascinating world of AI/ML security, this repository aims to equip you with the knowledge and resources needed to conduct effective penetration tests.🌟 Why is AI/ML/LLM Pentesting Important?As AI and LLMs become increasingly integrated into critical applications, their security becomes paramount. Vulnerabilities in these systems can lead to:Sensitive Information Disclosure: Leakage of PII, financial data, intellectual property.Malicious Model Behavior: Bias, misinformation, hallucination, or unintended actions.Service Disruption: Denial of Service attacks impacting availability and performance.Intellectual Property Theft: Unauthorized replication or extraction of models.Supply Chain Compromise: Introduction of backdoors or biases through third-party components.This repository focuses on addressing these risks and more, helping to build more secure AI systems.🚀 Getting StartedTo make the most of these resources, it's recommended to have a basic understanding of:Artificial Intelligence (AI) & Machine Learning (ML) Fundamentals: Concepts like model training, data preprocessing, and common algorithms.Large Language Models (LLMs): How they work, their architecture, and applications.Traditional Penetration Testing Concepts: Familiarity with web application security (e.g., XSS, SQLi), API security, and network security.Python Programming: Many tools and scripts in this domain are written in Python.📚 Resources OverviewThis repository categorizes resources to help you navigate through various aspects of AI/ML/LLM penetration testing.💡 AI/LLM Introduction & FundamentalsUnderstanding the basics is crucial before diving into attacks.What is AI and Language Models?Definition of AI: Technology enabling machines to mimic human intelligence (learning, reasoning, problem-solving).Introduction to Language Models: AI that understands, interprets, and generates human language.What are Large Language Models (LLMs)?Definition: Advanced language models trained on vast amounts of text data, capable of human-like text comprehension and generation.The Learning Process of LLMs:Training Process: LLMs learn patterns, grammar, and information from massive text datasets.Machine Learning Techniques: Use of algorithms and statistical methods for continuous improvement.Applications of LLMs: Chatbots, writing assistance, content creation, language translation, transforming industries.The AI Development Cycle:Problem IdentificationData CollectionModel DesignTrainingEvaluationDeploymentMonitoring and MaintenanceTokenization: Process of converting text into smaller units (tokens) for computer understanding. Includes preprocessing, breaking down text, converting tokens to numbers, and training/understanding.🚨 AI/LLM Attack OverviewThis section covers the broad categories of attacks against AI systems.3 Broad Categories of Attacks:Misalignment: Bias, offensive outputs, toxicity, hallucinations, backdoored models.Jailbreaks: Direct prompt injection, overwriting system instructions, DoS.Prompt Injections: AI injection, scams, data exfiltration, plugin request forgery.Injection Techniques:Ignore previous instructionsAcknowledgeConfuse/Encode (obfuscation, emojis, language switching)Algorithmic (automation, fuzzing, gradient descent)Plugins and Tools -> Agency: How AI's ability to interact with plugins (reading websites, summarizing emails, sending messages, invoking APIs) can be exploited.Request Forgery: Browsing to malicious websites, plugin with code repo access, embedded instructions in files.Data Exfiltration: Via plugins, hyperlinks, Markdown images, Markdown exfiltration (chatbots rendering Markdown).Image Forgery: Embedding transparent text or pixel changes to mislead image classification.Injection Locations: Injections can happen in virtually any file type or medium (documents, spreadsheets, text files, images, audio, video, code).⚔️ OWASP Top 10 for LLM Applications (Reference from PDF)The PDF highlights the OWASP Top 10 for Large Language Model Applications. This framework provides a critical understanding of the most common and impactful vulnerabilities.LLM01: Prompt InjectionThreats: Adversarial inputs manipulating LLMs into unintended behaviors (revealing confidential info, executing unauthorized actions). Includes Direct, Indirect, Jailbreaking, Memory Manipulation, Multi-Modal, and Multi-Chain Prompt Injection.Examples: Customer service chatbot leaking sensitive data, promotion injection, transcript injection, data exfiltration via image rendering or query parameters, source code injection, product review injection, CSP bypasses, ASCII to Unicode tag attacks, memory hacks.Remediation: Input Sanitization & Filtering, Contextual Escape & Segmentation, AI Model Guardrails & Fine-Tuning, Human-in-the-Loop Oversight, Least Privilege & Output Constraints.Labs: Lakera AI Gandalf Lab, PortSwigger Indirect Prompt Injection LabLLM02: Sensitive Information DisclosureThreats: Unintended exposure of confidential data (PII, financial records, health documents, business secrets, security credentials, legal materials) by LLMs.Examples: LLM inadvertently including confidential user data, sensitive info from training data, database access through prompts, insufficient isolation of instances.Remediation: Data Redaction & Anonymization, Strict Access Controls & Role-Based Permissions, Context-Aware Filtering & Response Scrubbing, User Input & Output Logging with Monitoring, Fine-Tuned Model Training with Ethical Constraints.LLM03: Supply ChainThreats: Vulnerabilities in the development and deployment processes of LLMs, where compromised third-party components (pre-trained models, datasets, plugins) introduce security risks.Examples: Compromised datasets, vulnerable models for transfer learning, poisoned crowdsourced data, tampered models, 3rd party package vulnerabilities (e.g., poisoned PyPi packages).Remediation: Vendor Security Assessment & Audits, Secure Model & Data Provenance, Dependency Management & SBOM, Zero Trust & Access Controls, Resilience & Redundancy Planning.LLM04: Data / Model PoisoningThreats: Deliberate manipulation of an LLM's training data or model parameters to introduce vulnerabilities, biases, or backdoors.Examples: Poisoning RAG data, training on private data, relying on user input for training, poisoned models on Huggingface, unverified ingestion of public resources.Remediation: Rigorous Data Validation & Sanitization, Robust Model Training & Adversarial Testing, Model & Data Provenance Tracking, Access Controls & Secure Model Updating, Continuous Monitoring & Drift Detection.LLM05: Improper Output HandlingThreats: Inadequate validation and sanitization of outputs generated by LLMs before processing by other systems, leading to security vulnerabilities (RCE, XSS, SQLi, file upload vulnerabilities).Examples: XSS, CSRF, SSRF, RCE, JS execution, markdown injections, SQLi through LLM output.Remediation: Output Filtering & Sanitization, Context-Aware Response Constraints, Escaping & Encoding for Web & API Outputs, Human Review for High-Risk Outputs, Rate Limiting & Abuse Detection.Lab: PortSwigger Insecure Output Handling LabLLM06: Excessive AgencyThreats: LLMs granted more functionality, permissions, or autonomy than necessary, enabling unintended or harmful actions.Examples: Interaction with APIs the LLM can control, invoking plugins/tools for unauthorized actions (discounts, refunds), SSRF, interaction with internal services (Slack, Jira, Email).Remediation: Strict Action Boundaries & Guardrails, Human Oversight & Approval Mechanisms, Minimal Privilege & API Access Controls, Explainability & Transparency, Behavior Monitoring & Anomaly Detection.Labs: PortSwigger Excessive Agency Lab, PortSwigger Exploiting LLM APIs LabLLM07: System Prompt LeakageThreats: Internal instructions (system prompts) guiding LLM behavior inadvertently containing sensitive information (credentials, internal rules), which can be exploited.Examples: Leakage of system prompt/developer instructions, tricking LLM with encoding/language to leak prompts, hardcoded API keys or endpoints in prompts.Remediation: Prompt Isolation & Segmentation, Output Filtering & Redaction, Access Controls & Role-Based Restrictions, Context-Aware Query Analysis, Differential Privacy & Prompt Encryption.LLM08: Vector and Embedding WeaknessesThreats: Security vulnerabilities arising from improper handling of vector embeddings (numerical representations of data) leading to unauthorized data access, poisoning, or unintended model behaviors.Examples: Exploitation of RAG (Retrieval Augmented Generation) and embedding weaknesses, exposure of internal model endpoints, unfiltered enrichment in RAG or vector stores.Remediation: Embedding Sanitization & Filtering, Access Control & Query Restriction, Adversarial Testing & Robustness Checks, Differential Privacy & Noise Injection, Anomaly Detection & Continuous Monitoring.LLM09: MisinformationThreats: Generation of false or misleading information by LLMs, appearing credible but leading to security breaches, reputational harm, and legal liabilities.Examples: Hallucinating LLM, incorrect image classification, overreliance, bias, nudity/profanity generation, false/harmful/toxic content, copyrighted information.Remediation: Fact-Checking & Source Verification, Confidence Scoring & Uncertainty Disclosure, Bias Detection & Model Fine-Tuning, Human Oversight & Editorial Controls, Feedback Loops & Continuous Monitoring.LLM10: Unbounded ConsumptionThreats: LLMs subjected to excessive and uncontrolled usage, leading to resource exhaustion, service degradation, financial losses, or intellectual property theft.Examples: Denial of Service (memory, resource-intensive requests, unfinishable tasks, loops), DoS by deleting model files, model theft (replication, code access, extraction), traditional DoS against APIs.Remediation: Rate Limiting & Quotas, Memory & Context Size Constraints, Usage Monitoring & Anomaly Detection, Prioritization & Resource Allocation, Session Expiry & Garbage Collection.🛠️ Tools & FrameworksOWASP LLM Top 10: The primary reference for LLM application security.https://genai.owasp.org/llm-top-10/LLM Attacks: Research and examples of adversarial attacks on language models.https://llm-attacks.orgPIPE - Prompt Injection Primer for Engineers: A GitHub repository focused on prompt injection security.https://github.com/jthack/PIPEMITRE ATLAS: A knowledge base of adversarial AI/ML tactics and techniques.https://atlas.mitre.org/Awesome GPT Security: A curated list of resources related to GPT security.https://github.com/cckuailong/awesome-gpt-securityChatGPT Your Red Team Ally: Resources on using ChatGPT for red teaming.https://github.com/NetsecExplained/chatgpt-your-red-team-allyAI Immersive Labs: Playgrounds for prompt injection and other AI security experiments.https://prompting.ai.immersivelabs.com/AI Doublespeak: Another playground for exploring AI interactions.https://doublespeak.chat/#AI Gandalf Labs: A lab specifically designed for prompt injection challenges.https://gandalf.lakera.aiAI Goat: A GitHub repository for AI security research.https://github.com/dhammon/ai-goatL1B3RT45: A comprehensive list of major LLM jailbreaks.https://github.com/elder-plinius/L1B3RT45Prompt Payloads:https://github.com/DummyKitty/Cyber-Security-chatGPT-prompthttps://github.com/NetsecExplained/chatgpt-your-red-team-allyhttps://gist.github.com/coolaj86/6f4f7b30129b0251f61fa7baaa881516https://github.com/f/awesome-chatgpt-promptshttps://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Prompt%20Injection📄 Relevant Articles & ResearchPrompt Injection Research:https://www.researchsquare.com/article/rs-2873090/v1https://arxiv.org/abs/2306.05499https://kai-greshake.de/posts/inject-my-pdf/https://github.com/openai/openai-python/blob/main/chatml.mdhttps://arxiv.org/pdf/2302.12173.pdfhttp://aivillage.org/large%20language%20models/threat-modeling-llm/https://www.lakera.ai/blog/guide-to-prompt-injectionhttps://embracethered.com/blog/ascii-smuggler.html (ASCII Smuggler)Sensitive Information Disclosure:https://www.foxbusiness.com/politics/ai-data-leak-crisis-prevent-company-secrets-chatgpthttps://cybernews.com/security/chatgpt-samsung-leak-explained-lessons/https://cohere.com/terms-of-useSupply Chain Vulnerabilities:https://www.securityweek.com/chatgpt-data-breach-confirmed-as-security-firm-warns-of-vulnerable-component-exploitation/https://securityboulevard.com/2023/05/what-happens-when-an-ai-company-falls-victim-to-a-software-supply-chain-vulnerability/https://platform.openai.com/docs/plugins/reviewhttps://pytorch.org/blog/compromised-nightly-dependency/https://learn.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learninghttps://atlas.mitre.org/techniques/AML.T0010/https://arxiv.org/pdf/1605.07277.pdfhttps://arxiv.org/abs/1708.06733https://atlas.mitre.org/studies/AML.CS0002Data / Model Poisoning:https://stanford-cs324.github.io/winter2022/lectures/data/https://www.businessinsider.com/openai-google-anthropic-ai-training-models-content-data-use-2023-6https://kai-greshake.de/posts/inject-my-pdfhttps://www.csoonline.com/article/3613932/how-data-poisoning-attacks-corrupt-machine-learning-models.htmlhttps://owasp.org/www-project-top-10-for-large-language-model-applications/descriptions/Training_Data_Poisoning.htmlImproper Output Handling:https://security.snyk.io/vuln/SNYK-PYTHON-LANGCHAIN-5411357https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2?gi=8daec85e2116https://aivillage.org/large%20language%20models/threat-modeling-llm/Misinformation / Overreliance:https://techpolicy.press/how-should-companies-communicate-the-risks-of-large-language-models-to-users/https://towardsdatascience.com/llm-hallucinations-ec831dcd7786Unbounded Consumption:https://twitter.com/hwchase17/status/1608467493877579777https://arxiv.org/abs/2006.03463🤝 ContributingContributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.If you have suggestions for new resources, tools, or improvements to existing content, please feel free to:Fork the ProjectCreate your Feature Branch (git checkout -b feature/AmazingFeature)Commit your Changes (git commit -m 'Add some AmazingFeature')Push to the Branch (git push origin feature/AmazingFeature)Open a Pull Request📄 LicenseDistributed under the MIT License. See LICENSE for more information.📞 ContactYour Name - @YourTwitterHandle (Replace with your actual handle)Project Link: https://github.com/YourGitHubProfile/YourRepoName (Replace with your actual repo link)Disclaimer: The resources provided here are for educational and ethical hacking purposes only. Any malicious use of the information or tools presented is strictly prohibited. Always ensure you have explicit permission before conducting any penetration testing activities on systems or models you do not own or have authorization to test.
+# 🛡️ AI/ML/LLM Penetration Testing Resources
+
+Welcome to the **AI/ML/LLM Penetration Testing Resources** repository!
+
+This collection offers a **comprehensive set of tools, articles, labs, and references** to help understand, identify, and mitigate vulnerabilities in **Artificial Intelligence (AI)**, **Machine Learning (ML)**, and **Large Language Models (LLMs)**.
+
+Whether you're a cybersecurity professional or just diving into the world of AI security, this repo is designed to equip you with **hands-on knowledge and practical tools** for pentesting AI-powered systems.
+
+---
+
+## 🌟 Why is AI/ML/LLM Pentesting Important?
+
+As AI becomes embedded into healthcare, finance, law, and beyond, securing these models is more crucial than ever. Vulnerabilities in AI/LLM systems can lead to:
+
+- 🕵️ Sensitive Information Disclosure  
+- 🤖 Malicious Model Behavior (bias, hallucinations, offensive outputs)  
+- 🚫 Service Disruption (DoS attacks)  
+- 📦 Intellectual Property Theft  
+- 🛠️ Supply Chain Compromises  
+
+This repository helps you address these risks by learning how to break (ethically) and fix these systems.
+
+---
+
+## 🚀 Getting Started
+
+To get the most from this repository, basic knowledge in the following areas is helpful:
+
+- 🔬 AI & ML Concepts (model training, data pipelines)
+- 🧠 Large Language Models (architecture & applications)
+- 🧑‍💻 Traditional Pentesting (XSS, SQLi, API security)
+- 🐍 Python Programming (most tools/scripts are Python-based)
+
+---
+
+## 📚 Resources Overview
+
+### 💡 AI/LLM Introduction & Fundamentals
+
+- **What is AI?**  
+  Machines simulating human intelligence (learning, reasoning, problem-solving).
+
+- **Language Models & LLMs**  
+  Models that understand and generate human language (e.g., ChatGPT, Claude).
+
+- **Training LLMs**  
+  Using massive text datasets to learn syntax, meaning, and knowledge.
+
+- **Development Lifecycle**  
+  `Problem → Data Collection → Model Design → Training → Evaluation → Deployment → Monitoring`
+
+- **Tokenization**  
+  Breaking text into machine-readable units (tokens).
+
+---
+
+## 🚨 AI/LLM Attack Landscape
+
+### 🔥 Core Attack Categories
+
+- **Misalignment**: Offensive outputs, hallucinations, bias  
+- **Jailbreaks**: Prompt overwriting, system instruction manipulation  
+- **Prompt Injections**: Exfiltration, plugin abuse, instruction overriding  
+
+### 🧪 Injection Techniques
+
+- “Ignore previous instructions”  
+- Obfuscation with emojis, encoding, or switching languages  
+- Exploiting plugin capabilities (email, web browsing, API calls)  
+- Markdown image/data exfiltration  
+- Injection across multiple file formats (text, image, audio, video)
+
+---
+
+## ⚔️ OWASP Top 10 for LLM Applications
+
+Adapted from OWASP's LLM Top 10 framework:
+
+| ID | Title | Description |
+|----|-------|-------------|
+| **LLM01** | Prompt Injection | Trick models into revealing secrets, bypassing instructions |
+| **LLM02** | Sensitive Information Disclosure | Accidental leakage of PII, financial data |
+| **LLM03** | Supply Chain | Risk from external components or poisoned datasets |
+| **LLM04** | Data / Model Poisoning | Malicious manipulation of training data or weights |
+| **LLM05** | Improper Output Handling | LLM-generated XSS, SQLi, RCE |
+| **LLM06** | Excessive Agency | Unchecked plugin/API interaction causing harm |
+| **LLM07** | System Prompt Leakage | Leaking internal system instructions or secrets |
+| **LLM08** | Vector & Embedding Weaknesses | Attacks via vector stores & embeddings |
+| **LLM09** | Misinformation | Hallucinated or biased outputs causing harm |
+| **LLM10** | Unbounded Consumption | Abuse via DoS or unauthorized model replication |
+
+👉 **[Read the full OWASP LLM Top 10](https://genai.owasp.org/llm-top-10/)**
+
+---
+
+## 🛠️ Tools & Frameworks
+
+| Name | Description |
+|------|-------------|
+| [LLM Attacks](https://llm-attacks.org) | Adversarial LLM security research |
+| [PIPE](https://github.com/jthack/PIPE) | Prompt Injection Primer for Engineers |
+| [MITRE ATLAS](https://atlas.mitre.org/) | AI/ML threat techniques database |
+| [Awesome GPT Security](https://github.com/cckuailong/awesome-gpt-security) | Curated GPT security list |
+| [ChatGPT Red Team Ally](https://github.com/NetsecExplained/chatgpt-your-red-team-ally) | Using ChatGPT in red teaming |
+| [Lakera Gandalf](https://gandalf.lakera.ai) | Prompt injection lab playground |
+| [AI Immersive Labs](https://prompting.ai.immersivelabs.com/) | Hands-on labs for prompt attacks |
+| [AI Goat](https://github.com/dhammon/ai-goat) | Research playground for AI security |
+| [L1B3RT45](https://github.com/elder-plinius/L1B3RT45) | List of known LLM jailbreaks |
+
+---
+
+## 🧰 Prompt Injection Payload Collections
+
+- https://github.com/DummyKitty/Cyber-Security-chatGPT-prompt  
+- https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Prompt%20Injection  
+- https://github.com/f/awesome-chatgpt-prompts  
+- https://gist.github.com/coolaj86/6f4f7b30129b0251f61fa7baaa881516  
+
+---
+
+## 📄 Articles & Research
+
+### 🧠 Prompt Injection
+- https://kai-greshake.de/posts/inject-my-pdf  
+- https://www.lakera.ai/blog/guide-to-prompt-injection  
+- https://arxiv.org/abs/2306.05499
+
+### 🔐 Sensitive Info Disclosure
+- https://cybernews.com/security/chatgpt-samsung-leak-explained-lessons/
+
+### 🧪 Supply Chain Attacks
+- https://pytorch.org/blog/compromised-nightly-dependency/
+
+### ☣️ Model Poisoning
+- https://www.csoonline.com/article/3613932/how-data-poisoning-attacks-corrupt-machine-learning-models.html
+
+### 🕷️ Improper Output Handling
+- https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2
+
+### 🤥 Misinformation & Hallucinations
+- https://techpolicy.press/how-should-companies-communicate-the-risks-of-large-language-models-to-users/
+
+### 💥 Unbounded Consumption
+- https://arxiv.org/abs/2006.03463
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open-source world amazing!  
+If you have new tools, fixes, or better explanations:
+
+1. Fork the project  
+2. Create a new branch: `git checkout -b feature/AmazingFeature`  
+3. Commit changes: `git commit -m 'Add some AmazingFeature'`  
+4. Push: `git push origin feature/AmazingFeature`  
+5. Submit a pull request 🎉
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**.  
+See `LICENSE` file for more details.
+
+---
+
+## 📞 Contact
+ 
+**Project Link:** [https://github.com/Mr-Infect/AI-penetration-testing](https://github.com/Mr-Infect/AI-penetration-testing)
+
+---
+
+> ⚠️ **Disclaimer:** This repository is for **educational and ethical hacking** purposes only. Do not use these tools without explicit permission. Unauthorized testing is illegal and unethical.
