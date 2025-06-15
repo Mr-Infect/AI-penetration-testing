@@ -158,13 +158,6 @@ If you have new tools, fixes, or better explanations:
 
 ---
 
-## 📄 License
-
-Distributed under the **MIT License**.  
-See `LICENSE` file for more details.
-
----
-
 ## 📞 Contact
  
 **Project Link:** [https://github.com/Mr-Infect/AI-penetration-testing](https://github.com/Mr-Infect/AI-penetration-testing)
