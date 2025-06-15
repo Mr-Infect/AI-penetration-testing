@@ -103,8 +103,6 @@ Use these playgrounds and labs to test prompt injection techniques safely:
 
 Prompt Injection is just the tip of the iceberg when it comes to LLM vulnerabilities. By understanding how attackers can twist the input-output behavior of models, you’ll be in a better position to build secure AI applications.
 
-👉 Ready for the next one? Dive into **[LLM02: Sensitive Information Disclosure](../LLM02_Sensitive_Information_Disclosure.md)**.
-
 ---
 
 > ⚠️ **Disclaimer**: This content is for ethical hacking, research, and educational purposes only. Do not use these techniques on systems you don’t own or have explicit permission to test.
