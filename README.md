@@ -93,6 +93,7 @@ To use this repository effectively:
 | [AI Immersive Labs](https://prompting.ai.immersivelabs.com/)                           | Prompt attack labs with real-time feedback |
 | [AI Goat](https://github.com/dhammon/ai-goat)                                          | OWASP-style AI pentesting playground       |
 | [L1B3RT45](https://github.com/elder-plinius/L1B3RT45)                                  | Jailbreak prompt collections               |
+| [PromptTrace](https://prompttrace.airedlab.com/)                                       | Interactive AI security training with 7 attack labs, 15-level Gauntlet, and real-time Context Trace for prompt injection and defense bypass |
 
 ---
 
